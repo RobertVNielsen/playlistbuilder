@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+</head>
+
+<body>
+  
+    <form action="/db/add_song" method="POST">
+        <div>
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title">
+        </div>
+        <div>
+            <label for="artist">Artist</label><br>
+            <input type="text" name="artist" id="artist">
+        </div>
+        <div>
+            <button type="submit">Add song</button>
+        </div>
+    </form>
+
+    <div class="container">
+        <br />Songs
+        <div>
+            
+            <ul>
+                <% for (var i = 0; i < songs.length; i++) { %>
+                    <li>
+                        <%= songs[i].title %> by <%= songs[i].artist %>  <br />
+                    </li>
+                <% } %>
+                
+            </ul>
+            <br />
+        </div>
+    </div> 
+    <br />
+    <br />
+</body>
+</html>

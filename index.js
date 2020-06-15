@@ -29,7 +29,7 @@ console.log('before')
 console.log('after')
 
 const corsOptions = {
-  origin: "https://prove-assignments.herokuapp.com/",
+  origin: "https://playlistbuilder.herokuapp.com/",
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
@@ -48,17 +48,7 @@ console.log(MONGODB_URL)
 app.use(flash());
 
 // Route setup. You can implement more in the future!
-const ta01Routes = require('./routes/ta01');
-const ta02Routes = require('./routes/ta02');
-const ta03Routes = require('./routes/ta03'); 
-const ta04Routes = require('./routes/ta04'); 
-const prove02Data = require('./routes/prove02'); 
-const bookInfoRoutes = require('./routes/bookInfo'); 
-const adminRoutes = require('./routes/admin'); 
-const loginRoutes = require('./routes/login');
-const editRoutes = require('./routes/edit');
-const shopRoutes = require("./routes/shop")
-const createAccountRoutes = require('./routes/create_account');
+const dbRoutes = require('./routes/db');
 
 console.log('where?')
 
@@ -71,26 +61,17 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
    .use(bodyParser({extended: false})) // For parsing the body of a POST
-   .use('/ta01', ta01Routes)
-   .use('/ta02', ta02Routes) 
-   .use('/ta03', ta03Routes) 
-   .use('/ta04', ta04Routes)
-   .use('/admin', adminRoutes)
-   .use('/prove02', prove02Data.routes)
-   .use('/bookInfo', bookInfoRoutes)
-   .use('/login', loginRoutes)
-   .use('/edit', editRoutes)
-   .use('/shop', shopRoutes)
-   .use('/create_account', createAccountRoutes)
+   .use('/db', dbRoutes) 
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
-     console.log('here?')
-     res.render('pages/index', {title: 'Welcome to my CSE341 repo', path: '/'});
+     console.log('here?');
+     
+     res.render('index', {title: 'Welcome to my CSE341 repo', path: '/', });
     })
-   .use((req, res, next) => {
+   //.use((req, res, next) => {
      // 404 page
-     res.render('pages/404', {title: '404 - Page Not Found', path: req.url})
-   })
+     //res.render('pages/404', {title: '404 - Page Not Found', path: req.url})
+   //})
    //.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 mongoose
