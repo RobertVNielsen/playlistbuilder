@@ -49,6 +49,9 @@ app.use(flash());
 
 // Route setup. You can implement more in the future!
 const dbRoutes = require('./routes/db');
+const loginRoutes = require('./routes/login');
+const signupRoutes = require('./routes/signup');
+const playlistRoutes = require('./routes/playlist');
 
 console.log('where?')
 
@@ -61,7 +64,10 @@ app.use(express.static(path.join(__dirname, 'public')))
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
    .use(bodyParser({extended: false})) // For parsing the body of a POST
-   .use('/db', dbRoutes) 
+   .use('/db', dbRoutes)
+   .use('/login', loginRoutes) 
+   .use('/signup', signupRoutes) 
+   .use('/playlist', playlistRoutes) 
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      console.log('here?');
