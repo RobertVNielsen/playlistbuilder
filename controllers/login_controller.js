@@ -26,7 +26,7 @@ exports.authenticate = (req, res, next) => {
                         return req.session.save(err => {
                             console.log(err);
                             console.log('1')
-                            res.redirect('/playlist');
+                            res.redirect('/allplaylists');
                         })
                     }
                     console.log('2')
