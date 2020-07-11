@@ -5,8 +5,8 @@ const controller = require("../controllers/playlist_controller");
 
 router.get("/:id", auth, controller.getDisplayPage)
 
-router.post("/playlist", auth, (req, res, next) => {
-    
-})
+router.post("/:id", auth, controller.postAddSong)
+
+router.post("/delete-song/:id", auth, controller.postDeleteSong)
 
 module.exports = router;

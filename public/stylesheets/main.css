@@ -1,32 +1,151 @@
-div {
+div.login {
     width: 50%;
-    
+    padding-top: 60px;
     margin: auto;
-    background-color: rgb(221, 221, 221);
+    background-color: black;
+    color: white;
+    font: 1em "Galyon Bold";
+    font-size: 20px;
+}
+
+div.login button {
+    background-color: cornflowerblue;
+    height: 40px;
+    width: 100%;
+}
+
+div.login input, textarea, select, button {
+    width: 100%;
+    height: 40px;
+}
+
+div.login input, textarea {
     color: black;
 }
+
+form.add {
+    width: 20%;
+    
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    font: 1em "Galyon Bold";
+    font-size: 20px;
+}
+
+form.add input, textarea, select, button {
+    width: 100%;
+    height: 40px;
+}
+
+form.add button {
+    background-color: cornflowerblue;
+    height: 40px;
+    width: 100%;
+}
+
+form.add input, textarea {
+    color: black;
+}
+
+div.playlistPage {
+    width: 100%;
+    padding-top: 60px;
+    margin: auto;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+div.playlistPage input, textarea {
+    color: black;
+}
+
+div.welcome, div.experience, div.linksOnFirstPage {
+    color: white;
+    margin: auto;
+    width: 75%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+div.welcome {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+div.experience {
+    font-size: 30px;
+}
+
+div.linksOnFirstPage a {
+    font-size: 30px;
+    color: white;
+}
+
+table.playlists {
+    float: right;
+    width: 65%;
+    margin-right: 30px;
+}
+
+table.playlists td {
+    padding-right: 10px;
+}
+
+table.playlists th {
+    color: darkgray;
+}
+
+table.playlists caption {
+    color: cornflowerblue;
+    font-size: 40px;
+}
+
+tr:hover, th {
+    background-color: rgb(31, 31, 31);
+}
+
 p {
     font-size: 50px;
 }
 input, textarea, select, button {
     font: inherit;
-    width : 100%;
-    height: 25px;
+    width : 200px;
+    height: 40px;
     padding: 10px;
     margin: 0 auto;
     box-sizing: border-box;
+}
+
+button {
+    background-color: cornflowerblue;
 }
 body {
     font  : 1.3rem sans-serif;
     padding : 0.5em;
     margin  : 0;
-    background : rgb(235, 235, 235);
+    background-color: black;
 }
 nav {
-    background : rgb(2, 97, 31);
+    background-color : black;
+    margin-top: 30px;
+    margin-bottom: 5px;
 }
 
-form {
+button.delete {
+    background-color: transparent;
+    color: red;
+    width: auto;
+    border: none;
+    float: right;
+}
+
+div.login form {
     
     width  : 80%;
     height : 80%;

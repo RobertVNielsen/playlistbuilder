@@ -3,7 +3,7 @@ const Playlist = require('../models/playlist');
 
 exports.displayPage = (req, res, next) => {
     Playlist
-        .find()
+        .find({creator: req.session.user._id})
         .then(playlists => {
             res.render('allplaylists', { 
                 title: 'allplaylists', 
@@ -23,7 +23,8 @@ exports.postAddPlaylist = (req, res, next) => {
     const playlist = new Playlist({
         title: title,
         description: description,
-        songs: []
+        songs: Array[null],
+        creator: req.session.user._id
     });
 
     playlist

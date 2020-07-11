@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Playlist = require('../models/playlist');
 
 const Schema = mongoose.Schema;
 
@@ -14,8 +15,13 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
     /*
+    playlists: {
+        type: [Playlist],
+        required: true
+    }
+    
     fName: {
         type: String,
         required: true

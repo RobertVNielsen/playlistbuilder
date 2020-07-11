@@ -20,6 +20,74 @@ const session = require('express-session')
 const flash = require('connect-flash')
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
+/*
+const SpotifyWebApi = require('spotify-web-api-node');
+
+// credentials are optional
+var spotifyApi = new SpotifyWebApi({
+  clientId: 'c666dc2a88094a638cbe13861f393429',
+  clientSecret: '45f6bcf87ac044539d2a207b9fce2f91',
+  
+});
+
+// Passing a callback - get Elvis' albums in range [20...29]
+spotifyApi
+  .getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE', { limit: 10, offset: 20 })
+  .then(
+    function(data) {
+      console.log('Album information', data.body);
+    },
+    function(err) {
+      console.error(err);
+    }
+  );
+
+/**
+ * This is an example of a basic node.js script that performs
+ * the Client Credentials oAuth2 flow to authenticate against
+ * the Spotify Accounts.
+ *
+ * For more information, read
+ * https://developer.spotify.com/web-api/authorization-guide/#client_credentials_flow
+ */
+
+/*
+var request = require('request'); // "Request" library
+
+var client_id = 'c666dc2a88094a638cbe13861f393429'; // Your client id
+var client_secret = '45f6bcf87ac044539d2a207b9fce2f91'; // Your secret
+
+// your application requests authorization
+var authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  headers: {
+    'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+  },
+  form: {
+    grant_type: 'client_credentials'
+  },
+  json: true
+};
+
+request.get(authOptions, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+
+    // use the access token to access the Spotify Web API
+    var token = body.access_token;
+    var options = {
+      url: 'https://api.spotify.com/v1/search?q=Arctic+Monkeys&type=artist',
+      headers: {
+        'Authorization': 'Bearer BQAHP7YhoU-cZ2BrQuVxPecTpzWMMqv3oPhbCuHl0pWvSzAyckTglaV0RD7q2l6pSLOovc31ur1rxUPk3tXcJthlWroKBFHYjdpogmjBEqrPCUxatFrJOyny95bQ0U4_5_6MP5kOTBGpXF83p5Q'
+      },
+      json: true
+    };
+    request.get(options, function(error, response, body) {
+      console.log(response);
+    });
+  }
+});
+*/
+
 const app = express();
 app.use(
   session({secret: 'secret', resave: false, saveUninitialized: false})

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Song = require('../models/song');
 
 const Schema = mongoose.Schema;
 
@@ -8,11 +9,14 @@ const playlistSchema = new Schema({
         required: true
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     songs: {
-        type: [],
+        type: [Schema.Song],
+        required: true
+    },
+    creator: {
+        type: Schema.Types.ObjectId,
         required: true
     }
 })

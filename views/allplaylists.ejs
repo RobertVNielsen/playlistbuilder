@@ -7,47 +7,54 @@
     <body>
         <% include ../views/includes/nav.ejs %>
 
-        <div class="container">
-            <div>
-                <table style="width:75%; float: right;">
-                    <tr>
-                    <th></th>
+        
+        <div class="playlistPage">
+            <table class="playlists">
+                <tr>
                     <th>Title</th>
                     <th>Description</th>
                     <th>Song count</th>
                     <th></th>
+                </tr>
+                <% for (var i = 0; i < playlists.length; i++) { %>
+                    <tr>
+                        <td>
+                            <a href="playlist/<%= playlists[i]._id %>">
+                                <%= playlists[i].title %>
+                            </a>
+                        </td>
+                        <td><%= playlists[i].description %></td>
+                        <td><%= playlists[i].songs.length %></td>
+                        <td>
+                            <form action="/allplaylists/delete-playlist" method="POST">
+                                <input type="hidden" name="deleteID" value="<%= playlists[i]._id %>">
+                                <button type="submit" class="delete">X</button>
+                            </form>
+                        </td>
                     </tr>
-                    <% for (var i = 0; i < playlists.length; i++) { %>
-                        <tr>
-                            <td><a href="playlist/<%= playlists[i]._id %>">Update</a></td>
-                            <td><%= playlists[i].title %></td>
-                            <td><%= playlists[i].description %></td>
-                            <td><%= playlists[i].songs.length %></td>
-                            <td>
-                                <form action="/allplaylists/delete-playlist" method="POST">
-                                    <input type="hidden" name="deleteID" value="<%= playlists[i]._id %>">
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <% } %>
-                </table>
-                
-                <form action="/allplaylists" method="POST">
-                    <div>
-                        <label for="title">Title</label><br>
-                        <input type="text" name="title" id="title">
-                    </div>
-                    <div>
-                        <label for="description">Description</label><br>
-                        <textarea name="description" id="description" rows="5"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit">Add Playlist</button>
-                    </div>
-                </form>
-            </div>
+                <% } %>
+            </table>
+            
+            <form action="/allplaylists" class="add" method="POST">
+                <input type="text" name="title" id="title" placeholder="Title"><br /><br />
+                <input type="text" name="description" id="description" placeholder="Description"><br /><br />
+                <button type="submit">Add Playlist</button>
+                <!--
+                <div>
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div>
+                    <label for="description">Description</label><br>
+                    <textarea name="description" id="description" rows="5"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Add Playlist</button>
+                </div>
+                -->
+            </form>
         </div>
+        
         <br />
         <br />
     </body>

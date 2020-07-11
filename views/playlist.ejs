@@ -7,24 +7,52 @@
     <body>
         <% include ../views/includes/nav.ejs %>
 
-        <div class="container">
-            <div>
-                <table style="width:75%; float: right;">
+        
+        <div class="playlistPage">
+
+            <table class="playlists">
+                <caption><%= playlist.title %></caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th></th>
+                </tr>
+                <% for (var i = 0; i < songs.length; i++) { %>
                     <tr>
-                        <th>Title</th>
-                        <th>Artist</th>
+                        <td><%= songs[i].title %></td>
+                        <td><%= songs[i].artist %></td>
+                        <td>
+                            <form action="/playlist/delete-song/<%= playlist._id %>" method="POST">
+                                <input type="hidden" name="deleteID" value="<%= songs[i]._id %>">
+                                <button type="submit" class="delete">X</button>
+                            </form>
+                        </td>
                     </tr>
-                    <% for (var i = 0; i < songs.length; i++) { %>
-                        <tr>
-                            <td><%= songs[i].title %></td>
-                            <td><%= songs[i].artist %></td>
-                        </tr>
-                    <% } %>
-                </table>
-                
-                
-            </div>
+                <% } %>
+            </table>
+            
+            <form action="/playlist/<%= playlist._id %>" class="add" method="POST">
+                <input type="text" name="title" id="title" placeholder="Title"><br /><br />
+                <input type="text" name="artist" id="artist" placeholder="Artist"><br /><br />
+                <button type="submit">Add Song</button>
+                <!--
+                <br /><br />
+                <div>
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title" id="title">
+                </div>
+                <div>
+                    <label for="artist">Artist</label><br>
+                    <input type="text" name="artist" id="artist">
+                </div>
+                <div>
+                    <input type="hidden" value="">
+                    <button type="submit">Add Song</button>
+                </div>
+                -->
+            </form>
         </div>
+        
         <br />
         <br />
     </body>
