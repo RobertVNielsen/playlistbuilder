@@ -12,12 +12,15 @@ const playlistSchema = new Schema({
         type: String
     },
     songs: {
-        type: [Schema.Song],
+        type: [Schema.Types.ObjectId],
         required: true
     },
     creator: {
         type: Schema.Types.ObjectId,
         required: true
+    },
+    shareTo: {
+        type: Schema.Types.ObjectId
     }
 })
 

@@ -5,7 +5,16 @@
     </head>
 
     <body>
-        <% include ../views/includes/nav.ejs %>
+        <nav>
+            
+            <div class="welcome">
+                <div class="playlistbuilder">Playlist Builder</div>
+                <form class="logout" action="/login/logout" method="POST">
+                    <button type="submit">Log out</button>
+                </form>
+            </div>
+
+        </nav>
 
         
         <div class="playlistPage">
@@ -13,6 +22,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>Shared</th>
                     <th>Song count</th>
                     <th></th>
                 </tr>
@@ -24,6 +34,13 @@
                             </a>
                         </td>
                         <td><%= playlists[i].description %></td>
+                        <td>
+                            <% if (playlists[i].shareTo) { %> 
+                                Yes
+                            <% } else { %>
+                                No
+                            <% } %>
+                        </td>
                         <td><%= playlists[i].songs.length %></td>
                         <td>
                             <form action="/allplaylists/delete-playlist" method="POST">
@@ -36,8 +53,8 @@
             </table>
             
             <form action="/allplaylists" class="add" method="POST">
-                <input type="text" name="title" id="title" placeholder="Title"><br /><br />
-                <input type="text" name="description" id="description" placeholder="Description"><br /><br />
+                <input type="text" name="title" id="title" placeholder="Title" required><br /><br />
+                <input type="text" name="description" id="description" placeholder="Description (optional)"><br /><br />
                 <button type="submit">Add Playlist</button>
                 <!--
                 <div>

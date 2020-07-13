@@ -5,13 +5,29 @@
     </head>
 
     <body>
-        <% include ../views/includes/nav.ejs %>
+        <nav>
+            
+            <div class="welcome">
+                <div class="back"><a href="/allplaylists">Back to Playlists</a></div>
+                <div class="playlistbuilder">Playlist Builder</div>
+                <form class="logout" action="/login/logout" method="POST">
+                    <button type="submit">Log out</button>
+                </form>
+            </div>
 
+        </nav>
+
+        
         
         <div class="playlistPage">
 
             <table class="playlists">
-                <caption><%= playlist.title %></caption>
+                <caption>
+                    <%= playlist.title %>
+                    <form class="share" action="/share/<%= playlist._id %>" method="GET">
+                        <button type="submit">Share Playlist</button>
+                    </form>
+                </caption>
                 <tr>
                     <th>Title</th>
                     <th>Artist</th>
@@ -32,8 +48,8 @@
             </table>
             
             <form action="/playlist/<%= playlist._id %>" class="add" method="POST">
-                <input type="text" name="title" id="title" placeholder="Title"><br /><br />
-                <input type="text" name="artist" id="artist" placeholder="Artist"><br /><br />
+                <input type="text" name="title" id="title" placeholder="Title" required><br /><br />
+                <input type="text" name="artist" id="artist" placeholder="Artist" required><br /><br />
                 <button type="submit">Add Song</button>
                 <!--
                 <br /><br />

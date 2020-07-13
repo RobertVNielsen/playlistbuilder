@@ -36,7 +36,8 @@ exports.getDisplayPage = (req, res, next) => {
                     res.render('playlist', { 
                         playlist: playlist,
                         songs: songs,
-                        path: '/playlist'
+                        path: '/playlist',
+                        isPlaylistPage: true
                     });
                 })
                 .catch(err => {

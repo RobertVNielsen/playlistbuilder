@@ -121,6 +121,7 @@ const loginRoutes = require('./routes/login');
 const signupRoutes = require('./routes/signup');
 const playlistRoutes = require('./routes/playlist');
 const allPlaylistsRoutes = require('./routes/allplaylists');
+const shareRoutes = require('./routes/share');
 
 console.log('where?')
 
@@ -137,7 +138,8 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use('/login', loginRoutes) 
    .use('/signup', signupRoutes) 
    .use('/playlist', playlistRoutes) 
-   .use('/allplaylists', allPlaylistsRoutes) 
+   .use('/allplaylists', allPlaylistsRoutes)
+   .use('/share', shareRoutes) 
    .get('/', (req, res, next) => {
      // This is the primary index, always handled last. 
      console.log('here?');

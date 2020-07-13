@@ -4,7 +4,8 @@ const crypt = require('bcryptjs');
 exports.page = (req, res, next) => {
     res.render('signup', { 
         title: 'signup', 
-        path: '/signup', 
+        path: '/signup',
+        isPlaylistPage: false
     });
 }
 

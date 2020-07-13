@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../views/includes/header.ejs %>
+        
+    </head>
+
+    <body>
+        <nav>
+            
+            <div class="welcome">
+                <div class="back"><a href="/playlist/<%= playlist._id %>">Back to Playlist</a></div>
+                <div class="playlistbuilder">Playlist Builder</div>
+                <form class="logout" action="/login/logout" method="POST">
+                    <button type="submit">Log out</button>
+                </form>
+            </div>
+
+        </nav>
+        <br /><br /><br /><br /><br />
+        <div class="login">
+            <form action="<%= playlist._id %>" method="POST">
+                
+                <input type="text" name="username" id="username" placeholder="Username of user to share with" required><br/><br/>
+                
+                <button type="submit">Share</button>
+            </form>
+        </div>
+    </body>
+</html>

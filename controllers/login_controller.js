@@ -4,7 +4,8 @@ const crypt = require('bcryptjs');
 exports.page = (req, res, next) => {
     res.render('login', { 
         title: 'Login', 
-        path: '/login', 
+        path: '/login',
+        isPlaylistPage: false
     });
 }
 
@@ -43,4 +44,11 @@ exports.authenticate = (req, res, next) => {
         .catch(err => {
             console.log(err); 
         })
+}
+
+exports.logout = (req, res, next) => {
+    if (req.session.loggedIn == true) {
+        req.session.loggedIn = false;
+        res.redirect('/');
+    }
 }

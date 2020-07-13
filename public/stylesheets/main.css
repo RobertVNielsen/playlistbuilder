@@ -23,6 +23,50 @@ div.login input, textarea {
     color: black;
 }
 
+div.back {
+    float: left;
+    font-size: 10px;
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+form.logout {
+    float: right;
+    padding-right: 20px;
+    width: 15%;
+    font-size: 10px;
+    
+}
+
+form.share {
+    float: right;
+    padding-right: 20px;
+    width: 15%;
+    font-size: 10px;
+    
+}
+
+form.share button {
+    width: 80px;
+    height: 30px;
+    padding: 0;
+    color: white;
+}
+
+div.playlistbuilder {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 70%;
+}
+
+form.logout button {
+    width: 70px;
+    height: 30px;
+    padding: 0;
+    margin-top: 20px;
+}
+
 form.add {
     width: 20%;
     
@@ -52,6 +96,7 @@ div.playlistPage {
     width: 100%;
     padding-top: 60px;
     margin: auto;
+    margin-top: 130px;
     background-color: black;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -66,7 +111,8 @@ div.playlistPage input, textarea {
 div.welcome, div.experience, div.linksOnFirstPage {
     color: white;
     margin: auto;
-    width: 75%;
+    width: 100%;
+    
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
@@ -135,6 +181,7 @@ nav {
     background-color : black;
     margin-top: 30px;
     margin-bottom: 5px;
+    width: 100%;
 }
 
 button.delete {

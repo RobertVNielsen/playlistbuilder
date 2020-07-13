@@ -3,12 +3,13 @@ const Playlist = require('../models/playlist');
 
 exports.displayPage = (req, res, next) => {
     Playlist
-        .find({creator: req.session.user._id})
+        .find({$or:[{creator: req.session.user._id}, {shareTo: req.session.user._id}]})
         .then(playlists => {
             res.render('allplaylists', { 
                 title: 'allplaylists', 
                 path: '/allplaylists', 
-                playlists: playlists
+                playlists: playlists,
+                isPlaylistPage: false
             });
         })
         .catch(err => {
@@ -24,7 +25,8 @@ exports.postAddPlaylist = (req, res, next) => {
         title: title,
         description: description,
         songs: Array[null],
-        creator: req.session.user._id
+        creator: req.session.user._id,
+        shareTo: null
     });
 
     playlist

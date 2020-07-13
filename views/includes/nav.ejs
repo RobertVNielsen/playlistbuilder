@@ -1,5 +1,11 @@
 <nav>
+    <% if (isPlaylistPage) { %>
+        <div class="back"><a href="/allplaylists"></a></div>
+    %>
     <div class="welcome">Playlist Builder</div>
+    <form class="logout" action="/logout" method="POST">
+        <button type="submit">Log out</button>
+    </form>
     <!--<div class="cornernav">Playlist Builder</div>
     <a class="login-nav" href="/login">log out</a>
     <a href="/">Home</a>
